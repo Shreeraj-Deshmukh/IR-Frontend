@@ -6,28 +6,12 @@ import { useNavigate } from "react-router-dom";
 
 const upcomingSessions = [
   {
-    id: 1,
-    title: "Pipeline / R&D Day",
-    date: "Nov 03 2026",
-    duration: 90,
-    participants: 6,
-    status: "Draft",
-  },
-  {
     id: 2,
     title: "Q3 Earnings Call Rehearsal",
     date: "Nov 10 2026",
     duration: 60,
     participants: 5,
     status: "Scheduled",
-  },
-  {
-    id: 3,
-    title: "Roche Peer Call Review",
-    date: "Nov 17 2026",
-    duration: 45,
-    participants: 3,
-    status: "IR Team",
   },
 ];
 
