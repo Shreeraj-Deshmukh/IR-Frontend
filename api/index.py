@@ -1,5 +1,9 @@
 import os
+import sys
 from pathlib import Path
+
+# Vercel runs this file without its own directory on sys.path, so sibling modules must be made importable.
+sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 import truststore
 from flask import Flask, jsonify, request
