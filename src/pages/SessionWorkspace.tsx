@@ -125,7 +125,7 @@ We achieved 8% constant-currency sales growth this quarter driven by Entresto, K
 
 Operational discipline and portfolio focus are helping us create a leaner, more impactful Novartis as we move into 2027.
 
-I'll now hand over to our CFO, Harry Kirsch, to walk through the financial results in detail before we open for Q&A.`;
+I'll now hand over to our CFO, Mukul Mehta, to walk through the financial results in detail before we open for Q&A.`;
 
 const starterQuestions = [
   "I have an investor earnings call in 30 minutes. Based only on the attached documents, prepare me for the most likely questions institutional investors will ask during the earnings call.",

@@ -18,7 +18,7 @@ export const personas: Persona[] = [
     firm: "Goldman Sachs",
     style: ["Pipeline-heavy", "Catalyst-seeking", "Trial-design focused"],
     difficulty: 9,
-    description: "Most frequent questioner in the Tagged QA Database (13 questions across 8 quarters). Presses on endpoint definitions, statistical powering and head-to-head comparator data, often looking for a near-term catalyst.",
+    description: "Presses on endpoint definitions, statistical powering and head-to-head comparator data, often looking for a near-term catalyst.",
     focusAreas: ["Endpoint powering", "Comparator efficacy", "Gross-to-net"],
   },
   {
@@ -27,7 +27,7 @@ export const personas: Persona[] = [
     firm: "Bernstein",
     style: ["Analytical", "Margin-focused", "Guidance-oriented"],
     difficulty: 8,
-    description: "Asks about the margin bridge, guidance phasing and launch uptake (10 questions across 7 quarters). Wants one-offs and mix effects spelled out.",
+    description: "Asks about the margin bridge, guidance phasing and launch uptake. Wants one-offs and mix effects spelled out.",
     focusAreas: ["Margin bridge", "Guidance cadence", "Launch uptake"],
   },
   {
@@ -36,7 +36,7 @@ export const personas: Persona[] = [
     firm: "BofA / Citi",
     style: ["Comparator-driven", "Persistent", "Detail-oriented"],
     difficulty: 8,
-    description: "Repeatedly benchmarks Novartis assets against named competitor data and follows up when answers are incomplete (9 questions across 5 quarters, 3 left as open loops).",
+    description: "Repeatedly benchmarks Novartis assets against named competitor data and follows up when answers are incomplete.",
     focusAreas: ["Comparator efficacy", "Gross-to-net", "Launch uptake"],
   },
   {
@@ -45,7 +45,7 @@ export const personas: Persona[] = [
     firm: "TD Cowen",
     style: ["Big-picture", "Strategic", "Policy-aware"],
     difficulty: 6,
-    description: "Covers long-term guidance, portfolio strategy and policy exposure such as tariffs and manufacturing (9 questions across 6 quarters).",
+    description: "Covers long-term guidance, portfolio strategy and policy exposure such as tariffs and manufacturing.",
     focusAreas: ["Long-term guidance", "LOE erosion", "Tariffs & manufacturing"],
   },
   {
@@ -54,7 +54,7 @@ export const personas: Persona[] = [
     firm: "JPMorgan",
     style: ["Competitive", "Share-focused", "Policy-aware"],
     difficulty: 7,
-    description: "Focuses on market share against named competitors and the effect of US drug-pricing policy (8 questions across 7 quarters).",
+    description: "Focuses on market share against named competitors and the effect of US drug-pricing policy.",
     focusAreas: ["Competitor comparison", "IRA / Part D", "Gross-to-net"],
   },
   {
@@ -63,7 +63,7 @@ export const personas: Persona[] = [
     firm: "Jefferies",
     style: ["Numbers-focused", "Margin-driven", "Launch-curve focused"],
     difficulty: 7,
-    description: "Digs into margin drivers, launch uptake and volume-versus-price splits (8 questions across 5 quarters).",
+    description: "Digs into margin drivers, launch uptake and volume-versus-price splits.",
     focusAreas: ["Margin bridge", "Launch uptake", "Volume vs price"],
   },
 ];

@@ -22,10 +22,9 @@ const steps = [
 ];
 
 const mockParticipants = [
-  { id: 1, name: "Sloan Simpson", role: "IR Host" },
+  { id: 1, name: "Shreeram Aradhye", role: "Chief Medical Officer" },
   { id: 2, name: "Uday", role: "CEO" },
-  { id: 3, name: "Harry Kirsch", role: "CFO" },
-  { id: 4, name: "Mukul Mehta", role: "Deputy CFO" },
+  { id: 3, name: "Mukul Mehta", role: "CFO" },
   { id: 5, name: "Marie-France Tschudin", role: "President Innovative Meds" },
 ];
 
@@ -41,7 +40,7 @@ export default function SessionCreation() {
   const [privacy, setPrivacy] = useState("ir-execs");
   const [selectedParticipants, setSelectedParticipants] = useState([1, 2, 3]);
   const [preparedRemarks, setPreparedRemarks] = useState(
-    "Good morning and thank you for joining Novartis' Q3 2026 earnings call. I'm Sloan Simpson, Head of Investor Relations. Today we'll review our quarterly performance, strategic initiatives, and answer your questions on our pipeline and commercial execution"
+    "Good morning and thank you for joining Novartis' Q3 2026 earnings call. I'm Shreeram Aradhye, Chief Medical Officer. Today we'll review our quarterly performance, strategic initiatives, and answer your questions on our pipeline and commercial execution"
   );
   const [selectedSources, setSelectedSources] = useState([true, false, false, true]);
   const [disclosureGuardrails, setDisclosureGuardrails] = useState([true, true]);

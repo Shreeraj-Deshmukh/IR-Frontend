@@ -53,14 +53,14 @@ const activities = [
   },
   {
     id: 2,
-    user: "Sloan Simpson",
+    user: "Shreeram Aradhye",
     action: "created draft",
     session: "Pipeline/R&D Day",
     time: "5 hours ago",
   },
   {
     id: 3,
-    user: "Harry Kirsch",
+    user: "Mukul Mehta",
     action: "shared feedback on",
     session: "Investor Day Rehearsal",
     time: "1 day ago",
