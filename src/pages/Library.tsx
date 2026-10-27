@@ -17,8 +17,8 @@ import { Link, useNavigate } from "react-router-dom";
 const sessions = [
   {
     id: 1,
-    title: "Q1 2026 Earnings Call",
-    date: "Jun 24 2026",
+    title: "Q2 2026 Earnings Call",
+    date: "Sep 24 2026",
     time: "11:43 AM",
     relativeTime: "2 hours ago",
     duration: 45,
@@ -32,7 +32,7 @@ const sessions = [
   {
     id: 2,
     title: "Investor Day Rehearsal",
-    date: "Jun 18 2026",
+    date: "Sep 18 2026",
     time: "2:15 PM",
     relativeTime: "1 day ago",
     duration: 90,
@@ -46,7 +46,7 @@ const sessions = [
   {
     id: 3,
     title: "Roche Peer Call Review",
-    date: "Jun 11 2026",
+    date: "Sep 11 2026",
     time: "9:30 AM",
     relativeTime: "3 days ago",
     duration: 60,
@@ -60,7 +60,7 @@ const sessions = [
   {
     id: 4,
     title: "Pipeline Update Rehearsal",
-    date: "Jun 05 2026",
+    date: "Sep 05 2026",
     time: "3:00 PM",
     relativeTime: "5 days ago",
     duration: 60,

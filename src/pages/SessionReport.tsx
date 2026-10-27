@@ -30,7 +30,7 @@ const moments = [
     time: "25:18",
     type: "peak",
     score: 92,
-    snippet: "As disclosed in our Q3 call, we expect full-year growth of 4-6% in constant currency.",
+    snippet: "As disclosed in our Q2 call, we expect full-year growth of 4-6% in constant currency.",
   },
 ];
 
@@ -58,7 +58,7 @@ export default function SessionReport() {
         <div className="mb-8">
           <div className="flex items-center justify-between mb-4">
             <div>
-              <h1 className="text-3xl font-bold mb-2">Q2 2026 Earnings Call Rehearsal</h1>
+              <h1 className="text-3xl font-bold mb-2">Q3 2026 Earnings Call Rehearsal</h1>
               <p className="text-muted-foreground">Completed • 45 minutes • 3 participants</p>
             </div>
             <div className="flex gap-3">

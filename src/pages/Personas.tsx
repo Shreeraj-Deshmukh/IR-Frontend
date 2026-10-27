@@ -10,41 +10,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from 
 import { Search, Filter, UserPlus, Upload, X } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { useToast } from "@/hooks/use-toast";
-
-const personas = [
-  {
-    id: 1,
-    name: "Simon Baker",
-    firm: "Redburn Atlantic",
-    style: ["Aggressive", "Numbers-focused", "Challenging"],
-    difficulty: 9,
-    description: "Known for pressing management on market-share trends, pricing discipline, and pipeline differentiation. Pushes for brand and competitor specifics. Focus: Market-share dynamics • Competitive differentiation • Follow-up depth 3",
-  },
-  {
-    id: 2,
-    name: "Florent Cespedes",
-    firm: "Bernstein",
-    style: ["Analytical", "Detail-oriented", "Patient"],
-    difficulty: 7,
-    description: "Probes deeply into research efficiency and trial readouts, linking science output to investor expectations. Focus: R&D productivity • Pipeline progression • Clinical trial outcomes",
-  },
-  {
-    id: 3,
-    name: "Emily Field",
-    firm: "Barclays",
-    style: ["Strategic", "Big-picture", "Constructive"],
-    difficulty: 6,
-    description: "Focuses on high-level strategy and growth narratives. Asks about pipeline visibility and leadership priorities. Focus: Strategic growth • Pipeline visibility • Long-term guidance",
-  },
-  {
-    id: 4,
-    name: "Matthew Weston",
-    firm: "UBS",
-    style: ["Technical", "Skeptical", "Direct"],
-    difficulty: 8,
-    description: "Challenges financial assumptions, probing cost control, margins, and external headwinds like FX and inflation. Focus: Financial sensitivity • Operational efficiency • Margins and FX",
-  },
-];
+import { personas } from "@/data/personas";
 
 const focusAreas = ["Financials", "Pipeline", "Commercial", "R&D", "FX"];
 const styleTags = ["Aggressive", "Strategic", "Analytical", "Constructive", "Technical", "Skeptical"];
@@ -286,7 +252,7 @@ export default function Personas() {
             <PersonaCard
               key={persona.id}
               {...persona}
-              onAdd={() => navigate("/session/workspace/1")}
+              onAdd={() => navigate(`/session/workspace/1?tab=analyst&persona=${persona.id}`)}
             />
           ))}
         </div>

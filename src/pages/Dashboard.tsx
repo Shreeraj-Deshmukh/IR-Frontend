@@ -8,15 +8,15 @@ const upcomingSessions = [
   {
     id: 1,
     title: "Pipeline / R&D Day",
-    date: "Jul 08 2026",
+    date: "Nov 03 2026",
     duration: 90,
     participants: 6,
     status: "Draft",
   },
   {
     id: 2,
-    title: "Q2 2026 Earnings Call Rehearsal",
-    date: "Jul 14 2026",
+    title: "Q3 Earnings Call Rehearsal",
+    date: "Nov 10 2026",
     duration: 60,
     participants: 5,
     status: "Scheduled",
@@ -24,7 +24,7 @@ const upcomingSessions = [
   {
     id: 3,
     title: "Roche Peer Call Review",
-    date: "Jul 17 2026",
+    date: "Nov 17 2026",
     duration: 45,
     participants: 3,
     status: "IR Team",
@@ -34,8 +34,8 @@ const upcomingSessions = [
 const recentSessions = [
   {
     id: 2,
-    title: "Q1 2026 Earnings Call",
-    date: "Jun 24 2026",
+    title: "Q2 2026 Earnings Call",
+    date: "Sep 24 2026",
     time: "11:43 AM",
     duration: 45,
     participants: 5,
@@ -47,7 +47,7 @@ const recentSessions = [
   {
     id: 3,
     title: "Investor Day Rehearsal",
-    date: "Jun 18 2026",
+    date: "Sep 18 2026",
     time: "2:15 PM",
     duration: 90,
     participants: 6,
@@ -61,9 +61,9 @@ const recentSessions = [
 const activities = [
   {
     id: 1,
-    user: "Vasant Narasimhan",
+    user: "Uday",
     action: "completed rehearsal",
-    session: "Q1 2026 Earnings Call",
+    session: "Q2 2026 Earnings Call",
     score: 87,
     time: "2 hours ago",
   },
@@ -93,7 +93,7 @@ export default function Dashboard() {
         <div className="mb-8">
           <div className="flex items-center justify-between">
             <div>
-              <h1 className="text-3xl font-bold mb-2">Welcome back, Vasant</h1>
+              <h1 className="text-3xl font-bold mb-2">Welcome back, Uday</h1>
               <p className="text-muted-foreground">
                 Your next rehearsal is in 5 days
               </p>

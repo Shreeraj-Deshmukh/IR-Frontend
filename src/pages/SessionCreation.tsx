@@ -22,7 +22,7 @@ const steps = [
 
 const mockParticipants = [
   { id: 1, name: "Sloan Simpson", role: "IR Host" },
-  { id: 2, name: "Vasant Narasimhan", role: "CEO" },
+  { id: 2, name: "Uday", role: "CEO" },
   { id: 3, name: "Harry Kirsch", role: "CFO" },
   { id: 4, name: "Mukul Mehta", role: "Deputy CFO" },
   { id: 5, name: "Marie-France Tschudin", role: "President Innovative Meds" },
@@ -37,7 +37,7 @@ const mockPersonas = [
 
 export default function SessionCreation() {
   const [currentStep, setCurrentStep] = useState(0);
-  const [sessionName, setSessionName] = useState("Q2 2026 Earnings Call Rehearsal");
+  const [sessionName, setSessionName] = useState("Q3 2026 Earnings Call Rehearsal");
   const [mode, setMode] = useState("team");
   const [objective, setObjective] = useState("full");
   const [duration, setDuration] = useState("45");
@@ -45,7 +45,7 @@ export default function SessionCreation() {
   const [privacy, setPrivacy] = useState("ir-execs");
   const [selectedParticipants, setSelectedParticipants] = useState([1, 2, 3]);
   const [preparedRemarks, setPreparedRemarks] = useState(
-    "Good morning and thank you for joining Novartis' Q2 2026 earnings call. I'm Sloan Simpson, Head of Investor Relations. Today we'll review our quarterly performance, strategic initiatives, and answer your questions on our pipeline and commercial execution"
+    "Good morning and thank you for joining Novartis' Q3 2026 earnings call. I'm Sloan Simpson, Head of Investor Relations. Today we'll review our quarterly performance, strategic initiatives, and answer your questions on our pipeline and commercial execution"
   );
   const [selectedSources, setSelectedSources] = useState([true, false, false, true]);
   const [disclosureGuardrails, setDisclosureGuardrails] = useState([true, true]);
@@ -251,7 +251,7 @@ export default function SessionCreation() {
                 <Label className="text-base">Reference Sources</Label>
                 <p className="text-sm text-muted-foreground mb-3">Select relevant previous calls and materials</p>
                 <div className="space-y-2">
-                  {["Q1 2026 Novartis call", "Roche Q1 2026", "AstraZeneca Q1 2026", "Product summary"].map((source, idx) => (
+                  {["Q2 2026 Novartis call", "Roche Q2 2026", "AstraZeneca Q2 2026", "Product summary"].map((source, idx) => (
                     <div key={idx} className="flex items-center space-x-2">
                       <Checkbox
                         checked={selectedSources[idx]}

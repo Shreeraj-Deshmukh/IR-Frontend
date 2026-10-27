@@ -13,7 +13,7 @@ import {
   ClipboardList, Lightbulb, Shield, Save, X, Send, Sparkles, PlayCircle, ChevronDown,
   BookOpen, TrendingUp, Radio, Download, Settings, Paperclip, FileCheck, Globe
 } from "lucide-react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import { useToast } from "@/hooks/use-toast";
 import {
   analyzeInvestorQuestions,
@@ -25,6 +25,8 @@ import {
   type StoredFile
 } from "@/lib/agentApi";
 import ReactMarkdown from "react-markdown";
+import { AnalystQAPanel } from "@/components/AnalystQAPanel";
+import { getPersona } from "@/data/personas";
 
 function StructuredQuestionsView({ questions }: { questions: ParsedQuestion[] }) {
   const [expanded, setExpanded] = useState<Set<number>>(new Set([0]));
@@ -116,12 +118,12 @@ function StructuredQuestionsView({ questions }: { questions: ParsedQuestion[] })
   );
 }
 
-const defaultRemarks = `Good morning everyone, and thank you for joining our Q2 2026 Earnings Call. 
-I'm Vasant Narasimhan, CEO of Novartis. Today I want to share how our focused strategy has continued to deliver strong performance and set the stage for sustainable growth.
+const defaultRemarks = `Good morning everyone, and thank you for joining our Q3 2026 Earnings Call. 
+I'm Uday, CEO of Novartis. Today I want to share how our focused strategy has continued to deliver strong performance and set the stage for sustainable growth.
 
 We achieved 8% constant-currency sales growth this quarter driven by Entresto, Kesimpta, and Pluvicto. Our innovation engine remains strong with advances across cardiovascular, immunology, and oncology pipelines.
 
-Operational discipline and portfolio focus are helping us create a leaner, more impactful Novartis as we move into 2026.
+Operational discipline and portfolio focus are helping us create a leaner, more impactful Novartis as we move into 2027.
 
 I'll now hand over to our CFO, Harry Kirsch, to walk through the financial results in detail before we open for Q&A.`;
 
@@ -135,9 +137,19 @@ const starterQuestions = [
 
 export default function SessionWorkspace() {
   const navigate = useNavigate();
+  const [searchParams, setSearchParams] = useSearchParams();
   const { toast } = useToast();
   const chatEndRef = useRef<HTMLDivElement>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
+
+  // Analyst Q&A tab: persona and active tab come from the URL (set by "Add to Session" on the Personas page)
+  const activeTab = searchParams.get("tab") || "qa";
+  const analystPersonaId = getPersona(searchParams.get("persona")).id;
+  const updateParams = (changes: Record<string, string>) => {
+    const next = new URLSearchParams(searchParams);
+    Object.entries(changes).forEach(([k, v]) => next.set(k, v));
+    setSearchParams(next, { replace: true });
+  };
 
   // Tab 1 state
   const [remarks] = useState(defaultRemarks);
@@ -266,7 +278,7 @@ export default function SessionWorkspace() {
         {/* Header */}
         <div className="mb-6 flex items-center justify-between">
           <div>
-            <h1 className="text-2xl font-bold">Q2 2026 Earnings Call – Session Workspace</h1>
+            <h1 className="text-2xl font-bold">Q3 2026 Earnings Call – Session Workspace</h1>
             <p className="text-sm text-muted-foreground">
               Predict investor questions using &amp; current earnings materials
             </p>
@@ -275,10 +287,11 @@ export default function SessionWorkspace() {
         </div>
 
         {/* Mode Tabs */}
-        <Tabs defaultValue="qa" className="w-full">
-          <TabsList className="grid w-full max-w-md mx-auto mb-6 grid-cols-2">
+        <Tabs value={activeTab} onValueChange={(tab) => updateParams({ tab })} className="w-full">
+          <TabsList className="grid w-full max-w-xl mx-auto mb-6 grid-cols-3">
             <TabsTrigger value="remarks">Prepared Remarks Rehearsal</TabsTrigger>
             <TabsTrigger value="qa">Q&amp;A Practice</TabsTrigger>
+            <TabsTrigger value="analyst">Analyst Q&amp;A</TabsTrigger>
           </TabsList>
 
           {/* Mode 1: Prepared Remarks Rehearsal */}
@@ -537,6 +550,14 @@ export default function SessionWorkspace() {
                 </Card>
               </div>
             </div>
+          </TabsContent>
+
+          {/* Mode 3: Persona-led Analyst Q&A */}
+          <TabsContent value="analyst">
+            <AnalystQAPanel
+              personaId={analystPersonaId}
+              onPersonaChange={(id) => updateParams({ persona: String(id) })}
+            />
           </TabsContent>
         </Tabs>
       </div>
