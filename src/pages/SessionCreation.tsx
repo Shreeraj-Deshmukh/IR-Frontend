@@ -11,6 +11,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Slider } from "@/components/ui/slider";
 import { Info, Users, FileText, UserCircle, CheckCircle, CheckCircle2, Circle, GripVertical, ArrowLeft, PlayCircle } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import { personas } from "@/data/personas";
 
 const steps = [
   { label: "Info", icon: Info },
@@ -28,12 +29,7 @@ const mockParticipants = [
   { id: 5, name: "Marie-France Tschudin", role: "President Innovative Meds" },
 ];
 
-const mockPersonas = [
-  { id: 1, name: "Simon Baker", firm: "Redburn Atlantic", difficulty: 9, focus: ["Financials", "Pipeline"] },
-  { id: 2, name: "Florent Cespedes", firm: "Bernstein", difficulty: 7, focus: ["Commercial", "Trials"] },
-  { id: 3, name: "Emily Field", firm: "Barclays", difficulty: 6, focus: ["Financials", "FX"] },
-  { id: 4, name: "Matthew Weston", firm: "UBS", difficulty: 8, focus: ["Pipeline", "Commercial"] },
-];
+const mockPersonas = personas.map((p) => ({ ...p, focus: p.focusAreas.slice(0, 2) }));
 
 export default function SessionCreation() {
   const [currentStep, setCurrentStep] = useState(0);

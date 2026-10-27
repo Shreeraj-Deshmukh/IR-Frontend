@@ -3,6 +3,7 @@ import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Download, Share2, Lightbulb, Target, MessageSquare, TrendingUp, ArrowLeftCircle, BookOpen } from "lucide-react";
 import { useParams, useNavigate } from "react-router-dom";
+import { personas } from "@/data/personas";
 
 const highlights = [
   "Strong opening and strategic framing",
@@ -41,10 +42,10 @@ const coachNotes = [
 ];
 
 const personaHeatmap = [
-  { name: "Simon Baker", questions: 4, difficulty: 9, avgScore: 84 },
-  { name: "Florent Cespedes", questions: 3, difficulty: 7, avgScore: 89 },
-  { name: "Emily Field", questions: 2, difficulty: 6, avgScore: 91 },
-  { name: "Matthew Weston", questions: 3, difficulty: 8, avgScore: 86 },
+  { name: personas[0].name, questions: 4, difficulty: personas[0].difficulty, avgScore: 84 },
+  { name: personas[1].name, questions: 3, difficulty: personas[1].difficulty, avgScore: 89 },
+  { name: personas[2].name, questions: 2, difficulty: personas[2].difficulty, avgScore: 91 },
+  { name: personas[3].name, questions: 3, difficulty: personas[3].difficulty, avgScore: 86 },
 ];
 
 export default function SessionReport() {
