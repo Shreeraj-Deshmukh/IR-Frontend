@@ -1,0 +1,16 @@
+Flask
+flask-cors
+
+truststore
+
+langchain-core
+langchain-google-genai
+google-generativeai
+
+
+pypdf
+
+python-dotenv
+requests
+
+gunicorn
