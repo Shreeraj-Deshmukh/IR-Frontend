@@ -1,72 +1,96 @@
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import {
-  Home,
-  Users,
-  BookOpen,
-  MonitorCheck,
-  BarChart3,
-  Database,
-  Settings2,
-  UserCog,
-  LogOut,
-} from "lucide-react";
+import { Settings2 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-const navItems = [
-  { path: "/", label: "Dashboard", icon: Home },
-  { path: "/personas", label: "Personas", icon: Users },
-  { path: "/library", label: "Library", icon: BookOpen },
-  { path: "/session/workspace/1", label: "Workspace", icon: MonitorCheck },
-  { path: "/session/report/1", label: "Reports", icon: BarChart3 },
-  { path: "/irhub", label: "IR Data Hub", icon: Database },
-  { path: "/admin", label: "Admin Center", icon: Settings2 },
-  { path: "/settings", label: "Settings", icon: UserCog },
+const modules = [
+  { path: "/radar", label: "Radar" },
+  { path: "/canvas", label: "Canvas" },
+  { path: "/coach", label: "Coach" },
+  { path: "/gei", label: "GEI" },
 ];
 
+const coachNav = [
+  { path: "/coach", label: "Dashboard" },
+  { path: "/personas", label: "Personas" },
+  { path: "/library", label: "Library" },
+  { path: "/session/workspace/1", label: "Workspace" },
+  { path: "/session/report/1", label: "Reports" },
+  { path: "/irhub", label: "IR Data Hub" },
+  { path: "/settings", label: "Settings" },
+];
+
+const coachPrefixes = ["/coach", "/personas", "/library", "/session", "/irhub", "/settings"];
+
+const isCoachPath = (pathname: string) =>
+  coachPrefixes.some((p) => pathname === p || pathname.startsWith(`${p}/`));
+
 export function NavBar() {
-  const location = useLocation();
+  const { pathname } = useLocation();
+  const inCoach = isCoachPath(pathname);
 
   return (
-    <nav className="border-b bg-card">
-      <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-16">
-          <div className="flex items-center gap-8">
-            <Link to="/" className="flex items-center">
-              <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center text-white font-bold text-sm tracking-tight select-none">
-                IR
-              </div>
+    <header className="bg-card">
+      <nav className="border-b">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-3 items-center h-16">
+            <Link to="/" className="text-xl font-bold">
+              IR Co-Pilot
             </Link>
 
-            <div className="hidden md:flex items-center gap-1">
-              {navItems.map((item) => {
-                const Icon = item.icon;
-                const isActive = location.pathname === item.path;
+            <div className="hidden md:flex items-center justify-center gap-1">
+              {modules.map((item) => {
+                const isActive = item.path === "/coach" ? inCoach : pathname.startsWith(item.path);
                 return (
                   <Link key={item.path} to={item.path}>
                     <Button
                       variant="ghost"
                       size="sm"
-                      className={cn(
-                        "gap-2",
-                        isActive && "bg-blue-50 text-blue-600 font-semibold"
-                      )}
+                      className={cn("text-base", isActive && "bg-blue-50 text-blue-600 font-semibold")}
                     >
-                      <Icon className="h-4 w-4" />
                       {item.label}
                     </Button>
                   </Link>
                 );
               })}
             </div>
-          </div>
 
-          <Button variant="outline" className="gap-2 hover:bg-red-50 hover:text-red-600 hover:border-red-200">
-            <LogOut className="h-4 w-4" />
-            Sign Out
-          </Button>
+            <div className="flex justify-end">
+              <Link to="/admin">
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  className={cn("gap-2 text-base", pathname === "/admin" && "bg-blue-50 text-blue-600 font-semibold")}
+                >
+                  <Settings2 className="h-4 w-4" />
+                  Admin
+                </Button>
+              </Link>
+            </div>
+          </div>
         </div>
-      </div>
-    </nav>
+      </nav>
+
+      {inCoach && (
+        <div className="border-b bg-muted/30">
+          <div className="container mx-auto px-4 flex items-center gap-1 h-11 overflow-x-auto">
+            {coachNav.map((item) => (
+              <Link key={item.path} to={item.path}>
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  className={cn(
+                    "text-sm whitespace-nowrap",
+                    pathname === item.path && "bg-blue-50 text-blue-600 font-semibold"
+                  )}
+                >
+                  {item.label}
+                </Button>
+              </Link>
+            ))}
+          </div>
+        </div>
+      )}
+    </header>
   );
 }

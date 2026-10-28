@@ -4,7 +4,9 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { NavBar } from "@/components/NavBar";
+import Home from "./pages/Home";
 import Dashboard from "./pages/Dashboard";
+import ModulePlaceholder from "./pages/ModulePlaceholder";
 import Personas from "./pages/Personas";
 import Library from "./pages/Library";
 import Settings from "./pages/Settings";
@@ -25,7 +27,11 @@ const App = () => (
       <BrowserRouter>
         <NavBar />
         <Routes>
-          <Route path="/" element={<Dashboard />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/coach" element={<Dashboard />} />
+          <Route path="/radar" element={<ModulePlaceholder title="Radar" tagline="Sense external signals that matter" />} />
+          <Route path="/canvas" element={<ModulePlaceholder title="Canvas" tagline="Shape disclosure-safe investor narratives" />} />
+          <Route path="/gei" element={<ModulePlaceholder title="Governed External Intelligence" tagline="A trusted intelligence foundation for IR decision-making" />} />
           <Route path="/personas" element={<Personas />} />
           <Route path="/library" element={<Library />} />
           <Route path="/settings" element={<Settings />} />

@@ -225,7 +225,7 @@ export default function SessionReport() {
 
         {/* Actions */}
         <div className="mt-8 flex gap-3">
-          <Button onClick={() => navigate("/")}>
+          <Button onClick={() => navigate("/coach")}>
             <ArrowLeftCircle className="h-4 w-4 mr-2" />
             Back to Dashboard
           </Button>
