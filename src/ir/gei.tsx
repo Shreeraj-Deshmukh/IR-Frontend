@@ -1126,8 +1126,8 @@ export function C_zn() {
   const e = useLocation(), n = (a) => a === "/gei" ? e.pathname === "/gei" : e.pathname.startsWith(a), s = w5();
   return (<nav className="sticky top-0 z-50 border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
 <div className="container mx-auto px-6">
-<div className="flex items-center justify-between h-14">
-<div className="flex items-center gap-6">
+<div className="flex items-center justify-between gap-6 h-14">
+<div className="flex flex-1 items-center gap-6">
 <Link to="/gei" className="flex items-center gap-2">
 <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center text-primary-foreground font-bold text-sm">
 G
@@ -1136,7 +1136,7 @@ G
 External Intelligence
 </span>
 </Link>
-<div className="flex items-center gap-1">
+<div className="flex flex-1 items-center justify-evenly">
 {t$.map((a) => {
     const C_r = a.icon, i = n(a.path), o = a.label === "Governance" && s > 0;
     return (<Link to={a.path} key={a.path}>

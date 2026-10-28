@@ -52,13 +52,6 @@ const activities = [
     time: "2 hours ago",
   },
   {
-    id: 2,
-    user: "Shreeram Aradhye",
-    action: "created draft",
-    session: "Pipeline/R&D Day",
-    time: "5 hours ago",
-  },
-  {
     id: 3,
     user: "Mukul Mehta",
     action: "shared feedback on",

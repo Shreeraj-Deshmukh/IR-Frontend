@@ -83,12 +83,6 @@ function StructuredQuestionsView({ questions }: { questions: ParsedQuestion[] })
                     <div className="text-xs leading-relaxed whitespace-pre-wrap text-foreground/90">{q.responseGuidance}</div>
                   </div>
                 )}
-                {q.supportingSource && (
-                  <div>
-                    <p className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider mb-1">Supporting source</p>
-                    <div className="text-xs text-muted-foreground italic whitespace-pre-wrap">{q.supportingSource}</div>
-                  </div>
-                )}
                 {(q.likelihood || q.impact) && (
                   <div className="flex gap-4 pt-2 border-t border-border/50">
                     {q.likelihood && (

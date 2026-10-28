@@ -73,7 +73,7 @@ export function NavBar() {
 
       {inCoach && (
         <div className="border-b bg-muted/30">
-          <div className="container mx-auto px-4 flex items-center gap-1 h-11 overflow-x-auto">
+          <div className="container mx-auto px-4 flex items-center justify-evenly h-11 overflow-x-auto">
             {coachNav.map((item) => (
               <Link key={item.path} to={item.path}>
                 <Button

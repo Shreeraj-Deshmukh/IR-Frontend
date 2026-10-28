@@ -38,8 +38,8 @@ export function Ao() {
   const e = useLocation(), n = (s) => s === "/radar" ? e.pathname === "/radar" || e.pathname.startsWith("/radar/signal/") : e.pathname === s;
   return (<nav className="sticky top-0 z-50 border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
 <div className="container mx-auto px-6">
-<div className="flex items-center justify-between h-14">
-<div className="flex items-center gap-6">
+<div className="flex items-center justify-between gap-6 h-14">
+<div className="flex flex-1 items-center gap-6">
 <Link to="/radar" className="flex items-center gap-2">
 <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center text-primary-foreground font-bold text-sm">
 R
@@ -48,7 +48,7 @@ R
 Radar
 </span>
 </Link>
-<div className="flex items-center gap-1">
+<div className="flex flex-1 items-center justify-evenly">
 {qA.map((s) => {
     const C_a = s.icon, r = n(s.path);
     return (<Link to={s.path} key={s.path}>
