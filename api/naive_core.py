@@ -1,4 +1,5 @@
 import html
+import io
 import logging
 import os
 import re
@@ -34,6 +35,23 @@ def coerce_model_text(content: Any) -> str:
     return str(content or "").strip()
 
 
+def _extract_text(name: str, payload: bytes) -> str:
+    """Decode an uploaded file; PDFs go through pypdf, everything else is read as UTF-8."""
+    if name.lower().endswith(".pdf") or payload[:5] == b"%PDF-":
+        try:
+            from pypdf import PdfReader
+
+            reader = PdfReader(io.BytesIO(payload))
+            pages = [
+                f"[Slide/Page {i}]\n{page.extract_text() or ''}"
+                for i, page in enumerate(reader.pages, start=1)
+            ]
+            return "\n\n".join(pages)
+        except Exception as exc:
+            logger.warning(f"PDF extraction failed for {name}: {exc}")
+    return payload.decode("utf-8", errors="ignore")
+
+
 def build_context_from_named_bytes(
     files: Iterable[tuple[str, bytes]],
     max_chars_per_file: int,
@@ -46,7 +64,7 @@ def build_context_from_named_bytes(
 
     for name, payload in files:
         file_count += 1
-        full_text = payload.decode("utf-8", errors="ignore")
+        full_text = _extract_text(name, payload)
         text = full_text[:max_chars_per_file]
         if len(full_text) > max_chars_per_file:
             truncated_files.append(name)
