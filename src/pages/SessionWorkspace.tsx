@@ -27,9 +27,13 @@ import {
 import ReactMarkdown from "react-markdown";
 import { AnalystQAPanel } from "@/components/AnalystQAPanel";
 import { getPersona } from "@/data/personas";
+import { isDemoTrigger, getShuffledDemoQuestions, demoRawText, DEMO_DELAY_MS, DEMO_TRIGGER_PROMPT } from "@/data/demoQuestions";
 
 function StructuredQuestionsView({ questions }: { questions: ParsedQuestion[] }) {
-  const [expanded, setExpanded] = useState<Set<number>>(new Set([0]));
+  const hasDetail = (q: ParsedQuestion) =>
+    !!(q.whyInvestorsCare || q.responseGuidance || q.likelihood || q.impact);
+  const anyDetail = questions.some(hasDetail);
+  const [expanded, setExpanded] = useState<Set<number>>(new Set(anyDetail ? [0] : []));
   const allExpanded = expanded.size === questions.length;
 
   const toggle = (i: number) => {
@@ -55,9 +59,11 @@ function StructuredQuestionsView({ questions }: { questions: ParsedQuestion[] })
     <div className="w-full">
       <div className="flex items-center justify-between mb-2">
         <span className="text-xs font-semibold text-muted-foreground">{questions.length} Questions Predicted</span>
-        <button onClick={toggleAll} className="text-xs text-primary hover:underline">
-          {allExpanded ? "Collapse all" : "Expand all"}
-        </button>
+        {anyDetail && (
+          <button onClick={toggleAll} className="text-xs text-primary hover:underline">
+            {allExpanded ? "Collapse all" : "Expand all"}
+          </button>
+        )}
       </div>
       <div className="space-y-2">
         {questions.map((q, i) => (
@@ -67,9 +73,11 @@ function StructuredQuestionsView({ questions }: { questions: ParsedQuestion[] })
                 {q.number}
               </span>
               <span className="flex-1 text-sm font-medium leading-snug">{q.question}</span>
-              <ChevronDown className={`h-4 w-4 ml-2 flex-shrink-0 text-muted-foreground transition-transform ${expanded.has(i) ? "rotate-180" : ""}`} />
+              {hasDetail(q) && (
+                <ChevronDown className={`h-4 w-4 ml-2 flex-shrink-0 text-muted-foreground transition-transform ${expanded.has(i) ? "rotate-180" : ""}`} />
+              )}
             </button>
-            {expanded.has(i) && (
+            {hasDetail(q) && expanded.has(i) && (
               <div className="px-4 pb-4 pt-2 border-t border-border bg-muted/20 space-y-3">
                 {q.whyInvestorsCare && (
                   <div>
@@ -122,7 +130,7 @@ Operational discipline and portfolio focus are helping us create a leaner, more 
 I'll now hand over to our CFO, Mukul Mehta, to walk through the financial results in detail before we open for Q&A.`;
 
 const starterQuestions = [
-  "Generate the 25 most probable analyst questions for the upcoming earnings call, ranked by likelihood. Focus on genuine, evidence-based questions about recent results, guidance, business trends, and key risks. Avoid generic, repetitive, or speculative questions.",
+  DEMO_TRIGGER_PROMPT,
   "I have an investor earnings call in 30 minutes. Based only on the attached documents, prepare me for the most likely questions institutional investors will ask during the earnings call.",
   "Generate the top 10 questions institutional investors are most likely to ask based on the latest quarter. Prioritize questions that could impact valuation and investor confidence.",
   "Compare recent quarters from the uploaded files. Identify what has changed and generate the investor questions most likely to arise because of those changes.",
@@ -237,6 +245,18 @@ export default function SessionWorkspace() {
 
     setChatMessages(prev => [...prev, { role: "executive", text: queryText }]);
     setIsTyping(true);
+
+    // Demo path: the "25 most probable questions" prompt returns a curated, shuffled set (no API call)
+    if (isDemoTrigger(queryText)) {
+      await new Promise((resolve) => setTimeout(resolve, DEMO_DELAY_MS));
+      const demoQuestions = getShuffledDemoQuestions();
+      setChatMessages(prev => [
+        ...prev,
+        { role: "analyst", text: demoRawText(demoQuestions), questions: demoQuestions },
+      ]);
+      setIsTyping(false);
+      return;
+    }
 
     try {
       const response = await analyzeInvestorQuestions(
