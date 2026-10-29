@@ -59,7 +59,7 @@ export default function SessionReport() {
         <div className="mb-8">
           <div className="flex items-center justify-between mb-4">
             <div>
-              <h1 className="text-3xl font-bold mb-2">Q3 2026 Earnings Call Rehearsal</h1>
+              <h1 className="text-2xl font-bold mb-1">Q3 2026 Earnings Call Rehearsal</h1>
               <p className="text-muted-foreground">Completed • 45 minutes • 3 participants</p>
             </div>
             <div className="flex gap-3">

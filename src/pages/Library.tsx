@@ -40,7 +40,7 @@ export default function Library() {
         {/* Header */}
         <div className="mb-8 flex items-start justify-between">
           <div>
-            <h1 className="text-3xl font-bold mb-2">Session Library</h1>
+            <h1 className="text-2xl font-bold mb-1">Session Library</h1>
             <p className="text-muted-foreground">
               Browse past rehearsals and review performance analytics
             </p>

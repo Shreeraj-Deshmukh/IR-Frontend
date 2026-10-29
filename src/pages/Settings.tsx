@@ -20,7 +20,7 @@ export default function Settings() {
       <div className="container mx-auto px-4 py-8 max-w-4xl">
         {/* Header */}
         <div className="mb-8">
-          <h1 className="text-3xl font-bold mb-2">Settings</h1>
+          <h1 className="text-2xl font-bold mb-1">Settings</h1>
           <p className="text-muted-foreground">
             Manage your account, team, and platform preferences
           </p>

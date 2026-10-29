@@ -37,7 +37,7 @@ export default function IRHub() {
     <div className="min-h-screen bg-background">
       <div className="container mx-auto px-4 py-8 max-w-5xl">
         <div className="mb-8">
-          <h1 className="text-3xl font-bold mb-2">IR Data Hub</h1>
+          <h1 className="text-2xl font-bold mb-1">IR Data Hub</h1>
           <p className="text-muted-foreground">
             Manage data inputs and reference materials for investor call rehearsals
           </p>

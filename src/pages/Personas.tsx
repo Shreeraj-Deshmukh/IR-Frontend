@@ -15,7 +15,7 @@ export default function Personas() {
         {/* Header */}
         <div className="mb-8 flex items-start justify-between">
           <div>
-            <h1 className="text-3xl font-bold mb-2">Analyst Personas</h1>
+            <h1 className="text-2xl font-bold mb-1">Analyst Personas</h1>
             <p className="text-muted-foreground">
               AI-powered analyst simulations trained on 5+ years of Novartis and peer earnings call transcripts
             </p>

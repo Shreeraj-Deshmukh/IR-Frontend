@@ -1,6 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { ArrowLeft, Settings2 } from "lucide-react";
+import { ArrowLeft, BarChart3, Database, LayoutDashboard, Library, MessagesSquare, Settings, Settings2, Users } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const modules = [
@@ -10,13 +10,13 @@ const modules = [
 ];
 
 const coachNav = [
-  { path: "/coach", label: "Dashboard" },
-  { path: "/personas", label: "Personas" },
-  { path: "/library", label: "Library" },
-  { path: "/session/workspace/1", label: "Workspace" },
-  { path: "/session/report/1", label: "Reports" },
-  { path: "/irhub", label: "IR Data Hub" },
-  { path: "/settings", label: "Settings" },
+  { path: "/coach", label: "Dashboard", icon: LayoutDashboard },
+  { path: "/personas", label: "Personas", icon: Users },
+  { path: "/library", label: "Library", icon: Library },
+  { path: "/session/workspace/1", label: "Workspace", icon: MessagesSquare },
+  { path: "/session/report/1", label: "Reports", icon: BarChart3 },
+  { path: "/irhub", label: "IR Data Hub", icon: Database },
+  { path: "/settings", label: "Settings", icon: Settings },
 ];
 
 const coachPrefixes = ["/coach", "/personas", "/library", "/session", "/irhub", "/settings"];
@@ -80,10 +80,11 @@ export function NavBar() {
                     variant="ghost"
                     size="sm"
                     className={cn(
-                      "text-sm whitespace-nowrap",
+                      "gap-2 text-sm whitespace-nowrap",
                       pathname === item.path && "bg-blue-50 text-blue-600 font-semibold"
                     )}
                   >
+                    <item.icon className="h-4 w-4" />
                     {item.label}
                   </Button>
                 </Link>

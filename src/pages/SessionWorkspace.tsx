@@ -273,8 +273,8 @@ export default function SessionWorkspace() {
         {/* Header */}
         <div className="mb-6 flex items-center justify-between">
           <div>
-            <h1 className="text-2xl font-bold">Q3 2026 Earnings Call – Session Workspace</h1>
-            <p className="text-sm text-muted-foreground">
+            <h1 className="text-2xl font-bold mb-1">Q3 2026 Earnings Call – Session Workspace</h1>
+            <p className="text-muted-foreground">
               Predict investor questions using &amp; current earnings materials
             </p>
           </div>
