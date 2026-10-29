@@ -7249,7 +7249,7 @@ Available in:
 </div>
 </div>
 <div className="flex items-center gap-2">
-<Button variant="outline" size="sm" onClick={() => n(`/gei/data-sources/${e.id}`)}>
+<Button variant="outline" size="sm" onClick={() => n(e.id === "ds-007" ? "/session/workspace/1?tab=qa" : `/gei/data-sources/${e.id}`)}>
 View Data Source
 </Button>
 <C_ei>
