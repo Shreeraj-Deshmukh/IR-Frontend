@@ -50,8 +50,11 @@ export default function Home() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {modules.map(({ name, path, icon: Icon, headline, description }) => (
-            <Card key={name} className="p-6 flex flex-col hover:shadow-lg transition-shadow">
+          {modules.map(({ name, path, icon: Icon, headline, description }, i) => (
+            <Card
+              key={name}
+              className={`p-6 flex flex-col card-hover animate-fade-in-up ${["", "animation-delay-100", "animation-delay-200"][i] ?? ""}`}
+            >
               <div className="flex items-center gap-3 mb-5">
                 <div className="h-10 w-10 rounded-full bg-primary/10 text-primary flex items-center justify-center">
                   <Icon className="h-5 w-5" />

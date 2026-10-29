@@ -1,6 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Settings2 } from "lucide-react";
+import { ArrowLeft, Settings2 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const modules = [
@@ -73,21 +73,33 @@ export function NavBar() {
 
       {inCoach && (
         <div className="border-b bg-muted/30">
-          <div className="container mx-auto px-4 flex items-center justify-evenly h-11 overflow-x-auto">
-            {coachNav.map((item) => (
-              <Link key={item.path} to={item.path}>
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  className={cn(
-                    "text-sm whitespace-nowrap",
-                    pathname === item.path && "bg-blue-50 text-blue-600 font-semibold"
-                  )}
-                >
-                  {item.label}
-                </Button>
-              </Link>
-            ))}
+          <div className="container mx-auto px-4 flex items-center gap-6 h-11">
+            <div className="flex flex-1 items-center justify-evenly overflow-x-auto">
+              {coachNav.map((item) => (
+                <Link key={item.path} to={item.path}>
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    className={cn(
+                      "text-sm whitespace-nowrap",
+                      pathname === item.path && "bg-blue-50 text-blue-600 font-semibold"
+                    )}
+                  >
+                    {item.label}
+                  </Button>
+                </Link>
+              ))}
+            </div>
+            <Link to="/">
+              <Button
+                variant="ghost"
+                size="sm"
+                className="gap-2 text-sm whitespace-nowrap text-muted-foreground hover:text-foreground"
+              >
+                <ArrowLeft className="h-4 w-4" />
+                Back to IR Co Pilot
+              </Button>
+            </Link>
           </div>
         </div>
       )}
