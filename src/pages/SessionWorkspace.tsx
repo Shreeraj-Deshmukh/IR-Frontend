@@ -122,6 +122,7 @@ Operational discipline and portfolio focus are helping us create a leaner, more 
 I'll now hand over to our CFO, Mukul Mehta, to walk through the financial results in detail before we open for Q&A.`;
 
 const starterQuestions = [
+  "Generate the 25 most probable analyst questions for the upcoming earnings call, ranked by likelihood. Focus on genuine, evidence-based questions about recent results, guidance, business trends, and key risks. Avoid generic, repetitive, or speculative questions.",
   "I have an investor earnings call in 30 minutes. Based only on the attached documents, prepare me for the most likely questions institutional investors will ask during the earnings call.",
   "Generate the top 10 questions institutional investors are most likely to ask based on the latest quarter. Prioritize questions that could impact valuation and investor confidence.",
   "Compare recent quarters from the uploaded files. Identify what has changed and generate the investor questions most likely to arise because of those changes.",
