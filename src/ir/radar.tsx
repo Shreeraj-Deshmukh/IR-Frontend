@@ -916,7 +916,7 @@ Category
 Data Sources
 </Label>
 <p className="text-xs text-muted-foreground mb-2">
-Select the GEI data sources that will power this signal
+Select the data sources that will power this signal
 </p>
 <div className="space-y-2 max-h-[200px] overflow-y-auto border rounded-lg p-2">
 {l0.length === 0 ? (<div className="text-center py-4 text-muted-foreground text-sm">
@@ -1202,10 +1202,6 @@ Data Sources
 Powered by External Intelligence
 </CardDescription>
 </div>
-<Link to="/gei/data-sources" className="text-xs text-primary hover:underline flex items-center gap-1">
-Manage in External Intelligence
-<ExternalLinkIcon className="h-3 w-3" />
-</Link>
 </div>
 </CardHeader>
 <CardContent className="space-y-3">

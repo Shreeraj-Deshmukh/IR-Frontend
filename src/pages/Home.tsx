@@ -1,5 +1,5 @@
 import { Card } from "@/components/ui/card";
-import { ArrowRight, ArrowUp, Database, GraduationCap, Palette, Radar, type LucideIcon } from "lucide-react";
+import { ArrowRight, GraduationCap, Palette, Radar, type LucideIcon } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const flow = ["Sense", "Shape", "Prepare"];
@@ -69,31 +69,6 @@ export default function Home() {
             </Card>
           ))}
         </div>
-
-        {/* Connector between modules and GEI */}
-        <div className="hidden md:grid grid-cols-3 h-20 rounded-b-2xl bg-gradient-to-b from-transparent to-primary/10 items-start justify-items-center pt-2">
-          {modules.map((m) => (
-            <ArrowUp key={m.name} className="h-8 w-8 text-primary/40" />
-          ))}
-        </div>
-
-        <Card className="p-8 text-center">
-          <div className="flex items-center justify-center gap-3 mb-4">
-            <div className="h-10 w-10 rounded-full bg-primary/10 text-primary flex items-center justify-center">
-              <Database className="h-5 w-5" />
-            </div>
-            <h2 className="text-xl font-semibold">Governed External Intelligence</h2>
-          </div>
-          <h3 className="font-medium mb-2">A trusted intelligence foundation for IR decision-making</h3>
-          <p className="text-sm text-muted-foreground max-w-3xl mx-auto mb-4">
-            Curated and governed external signals across analysts, media, social narratives, competitors, and markets
-            that power IR Co-Pilot
-          </p>
-          <Link to="/gei" className="inline-flex items-center gap-2 text-sm font-medium text-primary hover:underline">
-            Enter GEI <ArrowRight className="h-4 w-4" />
-          </Link>
-          <p className="text-xs text-muted-foreground mt-3">Curated • Governed • Reusable</p>
-        </Card>
 
         <div className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-4 text-xs text-muted-foreground text-center">
           <span>Designed as a single connected platform</span>

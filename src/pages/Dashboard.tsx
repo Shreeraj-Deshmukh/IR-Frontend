@@ -45,7 +45,7 @@ const recentSessions = [
 const activities = [
   {
     id: 1,
-    user: "Uday",
+    user: "Test User",
     action: "completed rehearsal",
     session: "Q2 2026 Earnings Call",
     score: 87,
@@ -70,7 +70,7 @@ export default function Dashboard() {
         <div className="mb-8">
           <div className="flex items-center justify-between">
             <div>
-              <h1 className="text-3xl font-bold mb-2">Welcome back, Uday</h1>
+              <h1 className="text-3xl font-bold mb-2">Welcome back, Test User</h1>
               <p className="text-muted-foreground">
                 Your next rehearsal is in 5 days
               </p>

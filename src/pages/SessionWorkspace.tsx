@@ -113,7 +113,7 @@ function StructuredQuestionsView({ questions }: { questions: ParsedQuestion[] })
 }
 
 const defaultRemarks = `Good morning everyone, and thank you for joining our Q3 2026 Earnings Call. 
-I'm Uday, CEO of Novartis. Today I want to share how our focused strategy has continued to deliver strong performance and set the stage for sustainable growth.
+I'm Test User, CEO of Novartis. Today I want to share how our focused strategy has continued to deliver strong performance and set the stage for sustainable growth.
 
 We achieved 8% constant-currency sales growth this quarter driven by Entresto, Kesimpta, and Pluvicto. Our innovation engine remains strong with advances across cardiovascular, immunology, and oncology pipelines.
 

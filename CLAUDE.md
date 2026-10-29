@@ -16,6 +16,6 @@ Known issues: first message returns 25 hardcoded questions after a 30s sleep; PD
 - After any port or content change, grep the repo for J&J-related terms and report any remaining hits.
 
 ## IR Co-Pilot modules (Radar / Canvas / GEI)
-- `/` is the IR Co-Pilot landing page (`src/pages/Home.tsx`). Top nav = Radar, Canvas, Coach, GEI; Coach holds the original app (Dashboard at `/coach`, Personas, Library, Workspace, Reports, IR Data Hub, Settings) with its own sub-nav in `src/components/NavBar.tsx`.
+- `/` is the IR Co-Pilot landing page (`src/pages/Home.tsx`). Top nav = Radar, Canvas, Coach (GEI is hidden: nav entry, Home section and `/gei*` routes removed; `src/ir/gei.tsx` kept in the repo); Coach holds the original app (Dashboard at `/coach`, Personas, Library, Workspace, Reports, IR Data Hub, Settings) with its own sub-nav in `src/components/NavBar.tsx`.
 - Radar, Canvas and GEI live in `src/ir/{radar,canvas,gei,shared}.tsx`. They were generated from the minified bundle of the J&J-based demo (https://ir-co-pilot.vercel.app) and then rewritten for Novartis, so identifiers are minified (`// @ts-nocheck`). Replace them with the real demo source when it becomes available. Do not alter Coach when working on these sections.
 - Theme/fonts come from our own `index.css`/Tailwind config; the demo-only utility classes (glass-card, card-hover, animate-fade-in-up) were added to `index.css` using our blue tokens.

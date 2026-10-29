@@ -23,7 +23,7 @@ const steps = [
 
 const mockParticipants = [
   { id: 1, name: "Shreeram Aradhye", role: "Chief Medical Officer" },
-  { id: 2, name: "Uday", role: "CEO" },
+  { id: 2, name: "Test User", role: "CEO" },
   { id: 3, name: "Mukul Mehta", role: "CFO" },
   { id: 5, name: "Marie-France Tschudin", role: "President Innovative Meds" },
 ];

@@ -7,7 +7,6 @@ const modules = [
   { path: "/radar", label: "Radar" },
   { path: "/canvas", label: "Canvas" },
   { path: "/coach", label: "Coach" },
-  { path: "/gei", label: "GEI" },
 ];
 
 const coachNav = [

@@ -17,10 +17,6 @@ import IRHub from "./pages/IRHub";
 import AdminCenter from "./pages/AdminCenter";
 import { RadarOverview, RadarHeatMap, RadarSignalSetup, RadarHistory, RadarSettings, RadarSignalDetail } from "./ir/radar";
 import { CanvasOverview, CanvasNarrative, CanvasBrief, CanvasReadiness, CanvasHistory, CanvasSettings } from "./ir/canvas";
-import {
-  GeiHome, GeiEntities, GeiDataSources, GeiGovernance, GeiDataSourceDetail, GeiAnalystDetail, GeiCompanyDetail,
-  GeiAssetDetail, GeiEventDetail, GeiNarrativeDetail, GeiMarketSignalDetail, GeiIndexDetail,
-} from "./ir/gei";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -50,18 +46,6 @@ const App = () => (
           <Route path="/canvas/readiness" element={<CanvasReadiness />} />
           <Route path="/canvas/history" element={<CanvasHistory />} />
           <Route path="/canvas/settings" element={<CanvasSettings />} />
-          <Route path="/gei" element={<GeiHome />} />
-          <Route path="/gei/entities" element={<GeiEntities />} />
-          <Route path="/gei/data-sources" element={<GeiDataSources />} />
-          <Route path="/gei/governance" element={<GeiGovernance />} />
-          <Route path="/gei/data-sources/:sourceId" element={<GeiDataSourceDetail />} />
-          <Route path="/gei/entities/analysts/:analystId" element={<GeiAnalystDetail />} />
-          <Route path="/gei/entities/companies/:companyId" element={<GeiCompanyDetail />} />
-          <Route path="/gei/entities/assets/:assetId" element={<GeiAssetDetail />} />
-          <Route path="/gei/entities/events/:eventId" element={<GeiEventDetail />} />
-          <Route path="/gei/entities/narratives/:narrativeId" element={<GeiNarrativeDetail />} />
-          <Route path="/gei/entities/market-signals/:signalId" element={<GeiMarketSignalDetail />} />
-          <Route path="/gei/entities/indices/:indexId" element={<GeiIndexDetail />} />
           <Route path="/personas" element={<Personas />} />
           <Route path="/library" element={<Library />} />
           <Route path="/settings" element={<Settings />} />

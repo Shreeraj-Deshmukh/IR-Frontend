@@ -1384,10 +1384,6 @@ Internal materials for narrative creation and review
 External Sources
 </CardTitle>
 </div>
-<Link to="/gei/data-sources" className="text-xs text-primary hover:underline flex items-center gap-1">
-Manage in External Intelligence
-<ExternalLinkIcon className="h-3 w-3" />
-</Link>
 </div>
 <p className="text-sm text-muted-foreground">
 Intelligence from External Intelligence module enabled for Canvas
